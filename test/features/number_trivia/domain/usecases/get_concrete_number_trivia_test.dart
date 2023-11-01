@@ -4,16 +4,19 @@ import 'package:experimental/features/number_trivia/domain/usecases/get_concrete
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dartz/dartz.dart';
+import 'package:mockito/annotations.dart';
+import 'get_concrete_number_trivia_test.mocks.dart';
 
 class MockNumberTriviaRepository extends Mock
     implements NumberTriviaRepository {}
 
+@GenerateMocks([MockNumberTriviaRepository])
 void main() {
   late GetConcreteNumberTrivia usecase;
-  late MockNumberTriviaRepository mockNumberTriviaRepository;
+  late MockMockNumberTriviaRepository mockNumberTriviaRepository;
 
   setUp(() {
-    mockNumberTriviaRepository = MockNumberTriviaRepository();
+    mockNumberTriviaRepository = MockMockNumberTriviaRepository();
     usecase = GetConcreteNumberTrivia(mockNumberTriviaRepository);
   });
 
